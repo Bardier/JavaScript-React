@@ -1,18 +1,6 @@
-// alert ("privet");
-// let answer = prompt('Тут задаем вопрос', 'значение по умолчанию');
-// console.log( typeof(answer) );
-
-// const answers = [];
-// answers[99] = 1;
-// console.log(answers.length);
-
-// let incr = 10,
-//     decr = 10;
- 
-// console.log(incr++, decr--);
+'use strict';
 
 const numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '0');
-
 
 const personalMovieDB = {
     coutn: numberOfFilms,
@@ -22,12 +10,47 @@ const personalMovieDB = {
     private: false
 };
 
-const a = prompt('Один из последних просмотренных фильмов?', ''),
-      b = +prompt('На сколько вы его оцените?', ''),
-      c = prompt('Один из последних просмотренных фильмов?', ''),
-      d = +prompt('На сколько вы его оцените?', '');
+for (let i = 0; i < 2; i++) {
+    const a = prompt('Один из последних просмотренных фильмов?', ''),
+          b = prompt('На сколько вы его оцените?', '');
+    if ( a != '' && b != '' && a.length < 50 && a != null && b != null ) {
+        personalMovieDB.movies[a] = b;
+    } else {
+        i--;
+    }
+}
 
-personalMovieDB.movies[a] = b;
-personalMovieDB.movies[c] = d;
+//  let i = 0;
+// while ( i < 2 ) {
+//     i++;
+//     const a = prompt('Один из последних просмотренных фильмов?', ''),
+//           b = prompt('На сколько вы его оцените?', '');
+//     if ( a != '' && b != '' && a.length < 50 && a != null && b != null ) {
+//         personalMovieDB.movies[a] = b;
+//     } else {
+//         i--;
+//     }
+// }
 
-console.log(personalMovieDB.movies);
+// do {
+//     i++;
+//     const a = prompt('Один из последних просмотренных фильмов?', ''),
+//           b = prompt('На сколько вы его оцените?', '');
+//     if ( a != '' && b != '' && a.length < 50 && a != null && b != null ) {
+//         personalMovieDB.movies[a] = b;
+//     } else {
+//         i--;
+//     }
+// } while ( i < 2 );
+
+if (personalMovieDB.coutn < 10) {
+    console.log('Просмотрено довольно мало фильмов');
+} else if (personalMovieDB.coutn >= 10 && personalMovieDB.coutn < 30) {
+    console.log('Вы классический зритель');
+} else if (personalMovieDB.coutn >=30) {
+    console.log('Вы киноман');
+} else {
+    console.log('Произошла ошибка');
+}
+
+console.log(personalMovieDB);
